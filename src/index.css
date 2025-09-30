@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -29,27 +31,55 @@ body::after {
 header, footer {
 	width: 100%;
 	text-align: center;
-	padding: 20px;
-	background: rgba(255, 255, 255, 0.85);
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	padding: 16px;
 }
 
 header {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: start;
 	column-gap: 8px;
-}
-
-header .logo {
-	height: 48px;
+	height: 72px;
+	z-index: 2;
+	background-color: #fff;
 }
 
 header h1 {
-	font-size: 48px;
 	font-family: "Noto Serif", serif;
 	color: #2c2c2c;
-	text-shadow: 2px 2px 0 #fff, 4px 4px 0 rgba(0,0,0,0.2);
+	text-shadow: 2px 2px 0 #fff, 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+}
+
+.header-links {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	gap: 16px;
+}
+
+.header-links a {
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+	padding: 8px 12px;
+	border-radius: 4px;
+	transition: background-color 0.3s ease;
+}
+
+dialog {
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	padding: 20px;
+	margin: auto;
 }
 
 main {
@@ -134,7 +164,143 @@ footer {
 	margin-top: auto;
 }
 
+.hero {
+	position: relative;
+	background: url("/hero-background.png");
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: center;
+	min-height: 100vh;
+	min-width: 100%;
+	border-radius: 0;
+	margin: 0 0 0 0;
+}
 
+/* Assorted tiles */
+
+.assorted-tiles {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	perspective: 1000px;
+	perspective-origin: 50% 50%;
+}
+
+.tile {
+	position: absolute;
+	aspect-ratio: 2/3;
+	border-radius: 32px;
+	width: 128px;
+	margin: 0;
+	cursor: pointer;
+	box-shadow: none;
+	border: none;
+	box-shadow: inset 4px 4px 2px #0000000d;
+	transition: .2s transform ease;
+}
+
+.tile::before {
+	content: " ";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border-radius: 32px;
+}
+
+.tile:hover {
+	box-shadow: 0px 0px 16px rgba(60, 175, 255, 0.8);
+}
+
+.tile > img {
+	width: 100%;
+	height: 100%;
+	border-radius: 32px;
+	object-fit: contain;
+}
+
+.red-dragon {
+	top: 10%;
+	left: 10%;
+}
+
+.east-wind {
+	top: 10%;
+	right: 10%;
+}
+
+.eight-bamboo {
+	bottom: 10%;
+	left: 10%;
+}
+
+.five-coin {
+	bottom: 18%;
+	right: 20%;
+	transform: scale(1.2) rotateX(19deg) rotateY(-21deg) rotateZ(6deg) translateZ(0px);
+}
+
+.five-coin::before {
+	box-shadow:
+		1px 1px 0px 0px #bbb,
+		2px 2px 0px -0px #bbb,
+		4px 4px 0px -1px #bbb,
+		6px 6px 0px -1px #bbb,
+		8px 8px 0px -2px #bbb,
+		10px 10px 0px -2px #bbb,
+		12px 12px 0px -3px #bbb,
+		16px 16px 0px -3px #bbb;
+}
+
+.five-coin:hover {
+	transform: scale(1.2) rotateX(19deg) rotateY(-21deg) rotateZ(6deg) translateZ(10px);
+}
+
+/* Hero join */
+.hero-join {
+	position: sticky;
+	height: 96px;
+	width: 96px;
+	top: 32px;
+	left: 32px;
+	margin-top: 16px;
+	padding: 0;
+	background-color: #fff;
+	border: 4px solid #ccc;
+	border-radius: 8px;
+}
+
+.hero-join > img {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+	object-fit: contain;
+}
+
+.hero-join > span {
+	position: absolute;
+	bottom: -38px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	background-color: #fff;
+	border-radius: 64px;
+	opacity: 0;
+	transition: .2s opacity;
+	white-space: nowrap;
+	padding: 4px;
+}
+
+.hero-join:hover > span {
+	opacity: 1;
+}
+
+/* Main */
 .link-group {
 	text-align: center;
 	margin: 32px 0;
@@ -145,14 +311,18 @@ footer {
 	width: 400px;
 	margin: 16px auto;
 	padding: 16px 24px;
-	background-color: #fdfdf9; /* off-white like a tile */
-	color: #c62828; /* red text by default */
+	background-color: #fdfdf9;
+	/* off-white like a tile */
+	color: #c62828;
+	/* red text by default */
 	font-size: 20px;
 	font-weight: bold;
 	text-decoration: none;
-	border: 4px solid #333; /* strong tile outline */
+	border: 4px solid #333;
+	/* strong tile outline */
 	border-radius: 12px;
-	box-shadow: 4px 4px 0 #666; /* chunky drop shadow like stacked tiles */
+	box-shadow: 4px 4px 0 #666;
+	/* chunky drop shadow like stacked tiles */
 	transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -163,12 +333,15 @@ footer {
 
 /* Colour alternation for mahjong suit vibes */
 .link-button:nth-child(odd) {
-	color: #2e7d32; /* green */
+	color: #2e7d32;
+	/* green */
 }
 
 .link-button:nth-child(even) {
-	color: #1565c0; /* blue */
+	color: #1565c0;
+	/* blue */
 }
+
 
 .separator {
 	display: flex;

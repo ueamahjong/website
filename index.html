@@ -10,11 +10,45 @@
 	</head>
 	<body>
 		<header>
-			<img src="/logo.png" alt="UEA Mahjong Logo" class="logo" />
 			<h1>UEA Mahjong</h1>
+			<nav>
+				<ul class="header-links">
+					<li><a href="#about">About</a></li>
+					<li><a href="#news">News</a></li>
+					<li><a href="#events">Events</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
 		</header>
+		<section class="hero">
+			<div class="assorted-tiles">
+				<button type="button" id="tileRedDragon" class="tile red-dragon">
+					<img src="/tiles/6-number.svg" title="6 of Number">
+				</button>
+				<button type="button" id="tileEastWind" class="tile east-wind">
+					<img src="/tiles/east-wind.svg" title="East Wind">
+				</button>
+				<button type="button" id="tileEightBamboo" class="tile eight-bamboo">
+					<img src="/tiles/8-bamboo.svg" title="8 of Bamboo">
+				</button>
+				<button type="button" id="tileFiveCoin" class="tile five-coin">
+					<img src="/tiles/5-coin.svg" title="5 of Coins">
+				</button>
+			</div>
+			<dialog id="tileInfoDialog">
+				<div class="dialog-content">
+					<span id="closeDialog" class="close-button">&times;</span>
+					<h2 id="tileName">Tile Name</h2>
+					<p id="tileDescription">Tile description goes here.</p>
+				</div>
+			</dialog>
+			<button type="button" class="hero-join">
+				<img src="/logo.png" alt="UEA Mahjong Logo">
+				<span>Join us on UEA SU!</span>
+			</button>
+		</section>
 		<main>
-			<section>
+			<section id="about">
 				<h2>Welcome to UEA Mahjong!</h2>
 				<!--<p>
 					This is the official website for the UEA Mahjong Society.
@@ -38,7 +72,7 @@
 						</a>
 						<a href="https://chat.whatsapp.com/EZfD4ZdAWDn4sPIkZx3jPk" class="link-button">
 							💬 Join our Whatsapp Group Chat
-						</a>				itch accou
+						</a>
 					</div>
 					<div class="link-group">
 						<h4>Join</h4>
@@ -57,13 +91,13 @@
 					</div>
 				</div>
 			</section>
-			<section>
+			<section id="news">
 				<h2>News</h2>
 				<p>
 					Stay tuned for the latest updates and announcements from the UEA Mahjong Society!
 				</p>
 			</section>
-			<section>
+			<section id="events">
 				<h2>Upcoming Events</h2>
 				<p>
 					Check back here for information on upcoming mahjong tournaments and social events.
@@ -81,6 +115,15 @@
 		</main>
 		<footer>
 			<p>© 2025 UEA Mahjong Society</p>
+			<p>
+				Website by <a href="https://github.com/Zekiah-A">Zekiah-A</a>,
+				released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL 3.0 License</a>
+				<a href="https://github.com/ueamahjong/website">(See Source Code)</a>
+			</p>
+			<ul>
+				<li><a href="https://www.instagram.com/ueamahjong">Instagram</a></li>
+				<li><a href="mailto:admin@ueamahjong.org">Email</a></li>
+			</ul>
 		</footer>
 	</body>
 </html>
