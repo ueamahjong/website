@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100" viewBox="0 0 300 100">
+	<defs>
+		<!-- Metallic background gradient -->
+		<linearGradient id="btn-bg" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="#444" />
+			<stop offset="50%" stop-color="#222" />
+			<stop offset="100%" stop-color="#111" />
+		</linearGradient>
+
+		<!-- Border gradient (white to faint blue glow) -->
+		<linearGradient id="btn-border" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#ffffff" />
+			<stop offset="100%" stop-color="#a0c8ff" />
+		</linearGradient>
+
+		<!-- Inner shadow filter -->
+		<filter id="inner-shadow" x="-50%" y="-50%" width="200%" height="200%">
+			<feOffset dx="0" dy="2" />
+			<feGaussianBlur stdDeviation="3" result="blur" />
+			<feComposite in2="SourceAlpha" operator="arithmetic"
+				k2="-1" k3="1" result="shadow" />
+			<feFlood flood-color="rgba(0,0,0,0.6)" result="shadowColor" />
+			<feComposite in="shadowColor" in2="shadow" operator="in" result="shadowed" />
+			<feComposite in="SourceGraphic" in2="shadowed" operator="over" />
+		</filter>
+
+		<!-- Outer glow filter -->
+		<filter id="outer-glow" x="-50%" y="-50%" width="200%" height="200%">
+			<feGaussianBlur stdDeviation="4" result="blur" />
+			<feMerge>
+				<feMergeNode in="blur" />
+				<feMergeNode in="SourceGraphic" />
+			</feMerge>
+		</filter>
+	</defs>
+
+	<!-- Bevelled button shape -->
+	<path d="M 20 0 H 280 L 300 20 V 80 L 280 100 H 20 L 0 80 V 20 Z"
+		fill="url(#btn-bg)"
+		stroke="url(#btn-border)"
+		stroke-width="3"
+		stroke-linejoin="round"
+		filter="url(#inner-shadow) url(#outer-glow)" />
+</svg>
