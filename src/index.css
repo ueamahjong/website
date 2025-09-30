@@ -1,0 +1,185 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: "Noto Sans", sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #222;
+}
+
+body::after {
+	content: "";
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background: linear-gradient(135deg, #2e7d32, #1b5e20);
+	background-repeat: no-repeat;
+}
+
+header, footer {
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.85);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 8px;
+}
+
+header .logo {
+	height: 48px;
+}
+
+header h1 {
+	font-size: 48px;
+	font-family: "Noto Serif", serif;
+	color: #2c2c2c;
+	text-shadow: 2px 2px 0 #fff, 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+	padding: 40px 20px;
+}
+
+section {
+	width: 100%;
+	max-width: 900px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding: 20px;
+	background-color: #fafafa;
+	border-radius: 12px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+section:nth-child(even) {
+	background-color: #f0ede6;
+}
+
+section h2 {
+	font-size: 24px;
+	color: #00695c;
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 6px;
+}
+
+.card {
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 4px 4px 0 #aaa;
+	transition: transform 0.1s ease-in-out;
+}
+
+.card:hover {
+	transform: translateY(-3px);
+}
+
+input, button {
+	margin-top: 10px;
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+button {
+	cursor: pointer;
+	background: #f4f4f4;
+	box-shadow: 2px 2px 0 #bbb;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 12px;
+	border-bottom: 1px solid #ddd;
+	text-align: left;
+}
+
+th {
+	background: #f0f0f0;
+}
+
+footer {
+	background-color: #1c352d;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+	margin-top: auto;
+}
+
+
+.link-group {
+	text-align: center;
+	margin: 32px 0;
+}
+
+.link-button {
+	display: block;
+	width: 400px;
+	margin: 16px auto;
+	padding: 16px 24px;
+	background-color: #fdfdf9; /* off-white like a tile */
+	color: #c62828; /* red text by default */
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	border: 4px solid #333; /* strong tile outline */
+	border-radius: 12px;
+	box-shadow: 4px 4px 0 #666; /* chunky drop shadow like stacked tiles */
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.link-button:hover {
+	transform: translate(-2px, -2px);
+	box-shadow: 8px 8px 0 #444;
+}
+
+/* Colour alternation for mahjong suit vibes */
+.link-button:nth-child(odd) {
+	color: #2e7d32; /* green */
+}
+
+.link-button:nth-child(even) {
+	color: #1565c0; /* blue */
+}
+
+.separator {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 20px 0;
+}
+
+.separator hr {
+	flex: 1;
+	border: none;
+	height: 1px;
+	background-color: #ccc;
+}
