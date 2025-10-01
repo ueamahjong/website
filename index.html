@@ -10,7 +10,6 @@
 	</head>
 	<body>
 		<header>
-			<h1>UEA Mahjong</h1>
 			<nav>
 				<ul class="header-links">
 					<li><a href="#about">About</a></li>
@@ -19,51 +18,57 @@
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</nav>
+			<button type="button" class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Theme">
+				<img src="/theme-light.svg" alt="Theme Toggle Icon">
+			</button>
 		</header>
 		<section class="hero">
-			<img src="/logo-title.png" alt="UEA Mahjong" class="hero-title">
-			<div class="assorted-tiles">
-				<button type="button" id="tileSixCharacters" class="tile six-characters">
-					<img src="/tiles/characters-6.svg" title="Six of Characters">
-				</button>
-				<button type="button" id="tileEastWind" class="tile east-wind">
-					<img src="/tiles/winds-east.svg" title="East Wind">
-				</button>
-				<button type="button" id="tileEightBamboos" class="tile eight-bamboos">
-					<img src="/tiles/bamboos-8.svg" title="Eight of Bamboos">
-				</button>
-				<button type="button" id="tileFiveCoins" class="tile five-coins">
-					<img src="/tiles/coins-5.svg" title="Five of Coins">
-				</button>
-			</div>
+			<img src="/hero-background.png" alt="Hero Background" class="hero-background" loading="eager" importance="high">
+			<!--<span class="tagline">Meeting every Thursday at 6pm, check SU for details!</span>-->
+			<button type="button" id="tileSixCharacters" class="tile six-characters">
+				<img src="/tiles/characters-6.svg" title="Six of Characters">
+			</button>
+			<img src="/logo-title.png" alt="UEA Mahjong" class="hero-title" loading="eager" importance="high">
+			<button type="button" id="tileEastWind" class="tile east-wind">
+				<img src="/tiles/winds-east.svg" title="East Wind">
+			</button>
+			<button type="button" id="tileEightBamboos" class="tile eight-bamboos">
+				<img src="/tiles/bamboos-8.svg" title="Eight of Bamboos">
+			</button>
+			<button type="button" id="tileFiveCoins" class="tile five-coins">
+				<img src="/tiles/coins-5.svg" title="Five of Coins">
+			</button>
 			<dialog id="tileInfoDialog">
 				<div class="dialog-header">
 					<h2 id="tileName">Tile Name</h2>
-					<button type="button" id="closeDialog" class="close-button">&times;</button>
+					<button type="button" id="closeDialog" class="dialog-close">&times;</button>
 				</div>
 				<hr>
 				<div class="dialog-content">
 					<p id="tileDescription">Tile description goes here.</p>
 				</div>
 			</dialog>
-			<button type="button" class="hero-join">
+			<button type="button" id="heroJoin" class="hero-join">
 				<img src="/logo.png" alt="UEA Mahjong Logo">
-				<span>Join us on UEA SU!</span>
+				<a class="join-link">Join us on UEA SU!</a>
 			</button>
 			<ul class="hero-links">
 				<li>
 					<a href="https://www.ueasu.org/communities/societies/?idea=1018#idea1018" class="hero-link">
-						⬆️ Upvote us on the SU website!
+						<img class="link-icon" src="/su-logo.svg" alt="SU"></img>
+						<span class="link-label">Upvote us on the SU website!</span>
 					</a>
 				</li>
 				<li>
 					<a href="https://chat.whatsapp.com/EZfD4ZdAWDn4sPIkZx3jPk" class="hero-link">
-						💬 Join our Whatsapp Group Chat
+						<img class="link-icon" src="/whatsapp-logo.svg" alt="WhatsApp"></img>
+						<span class="link-label">Join our Whatsapp Group Chat</span>
 					</a>
 				</li>
 				<li>
 					<a href="https://www.instagram.com/ueamahjong" class="hero-link">
-						🀄 Follow us on Instagram
+						<img class="link-icon" src="/instagram-logo.svg" alt="Instagram"></img>
+						<span class="link-label">Follow us on Instagram</span>
 					</a>
 				</li>
 			</ul>
