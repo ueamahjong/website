@@ -40,6 +40,25 @@ function handleHeaderScroll() {
 function init() {
 	handleHeaderScroll();
 
+	$$("a[href^=\"#\"]").forEach(anchor => {
+		anchor.addEventListener("click", function (e) {
+			e.preventDefault();
+			const href = this.getAttribute("href");
+			if (!href) {
+				return;
+			}
+			history.pushState(null, "", href);
+
+			// Smooth scroll manually
+			const target = document.querySelector(href);
+			if (target) {
+				target.scrollIntoView({
+					behavior: "smooth"
+				});
+			}
+		});
+	});
+
 	const tileInfoDialog = $("#tileInfoDialog");
 	tileInfoDialog.addEventListener("click", (event) => {
 		if (event.target === tileInfoDialog) {
@@ -79,7 +98,6 @@ function init() {
 	tileFiveCoins.addEventListener("click", () => {
 		showTileInfoDialog("5 Of Coins", "The 5 of Coins is a special tile in Mahjong, often marked with a red dot. It is considered a 'dora' tile, which can increase the value of your hand if included.");
 	});
-
 }
 
 if (document.readyState === "loading") {
