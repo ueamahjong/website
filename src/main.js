@@ -59,6 +59,11 @@ function init() {
 		});
 	});
 
+	const heroJoin = $("#heroJoin");
+	heroJoin.addEventListener("click", () => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	});
+
 	const tileInfoDialog = $("#tileInfoDialog");
 	tileInfoDialog.addEventListener("click", (event) => {
 		if (event.target === tileInfoDialog) {

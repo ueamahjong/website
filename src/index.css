@@ -300,11 +300,11 @@ footer {
 .six-characters {
 	top: 21%;
 	left: 22%;
-	transform: translateZ(300px) rotateX(-25deg) rotateY(27deg) rotateZ(6deg);
+	transform: translateZ(300px) rotateX(-25deg) rotateY(27deg) rotateZ(0deg) translateZ(0px);
 	z-index: 2;
 }
 .six-characters:hover {
-	transform: translateZ(300px) rotateX(-25deg) rotateY(27deg) rotateZ(6deg) translateZ(10px);
+	transform: translateZ(300px) rotateX(-25deg) rotateY(27deg) rotateZ(0deg) translateZ(10px);
 }
 
 .east-wind {
@@ -319,7 +319,10 @@ footer {
 .eight-bamboos {
 	bottom: 10%;
 	left: 10%;
-	transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(0px);
+	transform: translateZ(-200px) rotateY(30deg) rotateX(15deg) rotateZ(0deg) translateZ(0px);
+}
+.eight-bamboos:hover {
+	transform: translateZ(-200px) rotateY(30deg) rotateX(15deg) rotateZ(0deg) translateZ(10px);
 }
 
 .five-coins {
@@ -377,18 +380,22 @@ footer {
 	object-fit: contain;
 }
 
+.hero-join.docked > .join-link {
+	left: calc(100% + 6px);
+}
+
 .hero-join > .join-link {
 	position: absolute;
 	bottom: -42px;
-	left: 50%;
-	transform: translateX(-50%);
+	left: calc(50% - 4px);
 	font-size: 14px;
+	transform: translateX(-50%);
 	font-weight: bold;
 	color: #333;
 	background-color: #fff;
 	border-radius: 64px;
 	opacity: 0;
-	transition: .2s opacity;
+	transition: .2s opacity, .2s left;
 	white-space: nowrap;
 	padding: 4px;
 	margin: 8px;
