@@ -101,7 +101,13 @@ function init() {
 	const closeDialogButton = $("#closeDialog");
 	closeDialogButton.addEventListener("click", () => {
 		tileInfoDialog.close();
-		selectedTile?.classList.remove("activated");
+	});
+
+	tileInfoDialog.addEventListener("close", () => {
+		if (selectedTile) {
+			selectedTile.classList.remove("activated");
+			selectedTile = null;
+		}
 	});
 }
 
