@@ -61,6 +61,14 @@ nav {
 	align-items: center;
 }
 
+footer a {
+	color: lightblue;
+}
+
+footer  a:visited {
+	color: inherit;
+}
+
 .header-links {
 	display: flex;
 	list-style: none;
@@ -205,6 +213,7 @@ footer {
 	min-width: 100%;
 	border-radius: 0;
 	margin: 0;
+	transform-style: flat;
 	perspective-origin: 50% 50%;
 	perspective: 1000px;
 }
@@ -232,7 +241,13 @@ footer {
 	border: none;
 	box-shadow: inset 4px 4px 2px #cfcfcf5c,
 		inset -4px -4px 2px #6f6f6f38;
-	transition: .2s transform ease, .2s box-shadow ease, .2s opacity ease;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+	transition: .2s transform ease, .2s top, .2s left, .2s box-shadow ease, .2s opacity ease;
+}
+
+.tile:hover {
+	opacity: 1;
 }
 
 .tile::before {
@@ -242,12 +257,13 @@ footer {
 	height: 100%;
 	top: 0;
 	left: 0;
+	box-shadow: 0px 0px 0px rgba(60, 175, 255, 0);
 	border-radius: 32px;
+	transition: .2s box-shadow ease;
 }
 
-.tile:hover {
+.tile:hover::before {
 	box-shadow: 0px 0px 16px rgba(60, 175, 255, 0.8);
-	opacity: 1;
 }
 
 .tile > img {
@@ -257,57 +273,62 @@ footer {
 	object-fit: contain;
 }
 
+.tile.activated {
+	transform: translate(-50%, -150%) translateZ(300px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	top: 50%;
+	left: 50%;
+}
+
+.tile > .slice {
+    position: absolute;
+	top: 0;
+    left: 0;
+	width: 100%;
+    height: 100%;
+    background: #ddd;
+    transform: translateZ(calc(var(--z) * 8px));
+	z-index: var(--z);
+	border-radius: 32px;
+	pointer-events: none;
+}
+
+.tile > .slice.end {
+	background: #e5c85c;
+	transform: translateZ(calc(var(--z) * 8px - 8px));
+}
+
 .six-characters {
-	top: 15%;
-	left: 13%;
-	transform: scale(1.4) rotateX(10deg) rotateY(-10deg) rotateZ(0deg) translateZ(0px);
+	top: 21%;
+	left: 22%;
+	transform: translateZ(300px) rotateX(-25deg) rotateY(27deg) rotateZ(6deg);
 	z-index: 2;
 }
-.six-characters::before {
-	box-shadow:
-		-1px -1px 0px 0px #bbb,
-		-2px -1px 0px -0px #bbb,
-		-4px -2px 0px -1px #bbb,
-		-6px -4px 0px -1px #bbb,
-		-8px -6px 0px -2px #bbb,
-		-10px -7px 0px -2px #bbb,
-		-16px -10px 0px -3px #bbb,
-		-18px -12px 0px -3px #bbb,
-		-22px -15px 0px -4px #e5c85c;
-}
 .six-characters:hover {
-	transform: scale(1.4) rotateX(10deg) rotateY(-10deg) rotateZ(0deg) translateX(2px) translateY(2px);
+	transform: translateZ(300px) rotateX(-25deg) rotateY(27deg) rotateZ(6deg) translateZ(10px);
 }
 
 .east-wind {
-	top: 10%;
-	right: 10%;
-	transform: scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(0px);
+	top: 4%;
+	right: 2%;
+	transform: translateZ(-200px) rotateX(332deg) rotateY(325deg) rotateZ(351deg) translateZ(0px);
+}
+.east-wind:hover {
+	transform: translateZ(-200px) rotateX(332deg) rotateY(325deg) rotateZ(351deg) translateZ(10px);
 }
 
 .eight-bamboos {
 	bottom: 10%;
 	left: 10%;
-	transform: scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(0px);
+	transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(0px);
 }
 
 .five-coins {
 	bottom: 18%;
 	right: 20%;
-	opacity: 0.9;
+	/*opacity: 0.9;*/ /*TODO: This causes an issue with stacking context breaking 3D children*/
+	/*TODO: Replace scale with transform*/
 	transform: scale(1.2) rotateX(19deg) rotateY(-21deg) rotateZ(6deg) translateZ(0px);
 	z-index: 3;
-}
-.five-coins::before {
-	box-shadow:
-		1px 1px 0px 0px #bbb,
-		2px 2px 0px -0px #bbb,
-		4px 4px 0px -1px #bbb,
-		6px 6px 0px -1px #bbb,
-		8px 8px 0px -2px #bbb,
-		10px 10px 0px -2px #bbb,
-		12px 12px 0px -3px #bbb,
-		16px 16px 0px -3px #e5c85c;
 }
 .five-coins:hover {
 	transform: scale(1.2) rotateX(19deg) rotateY(-21deg) rotateZ(6deg) translateZ(10px);
@@ -315,11 +336,11 @@ footer {
 
 @media screen and (max-width: 800px) {
 	.five-coins {
-		opacity: 0.6;
+		/*opacity: 0.6;*/ /*TODO: This causes an issue with stacking context breaking 3D children*/
 		transform: scale(1) rotateX(19deg) rotateY(-21deg) rotateZ(6deg) translateY(-60px) translateX(60px) translateZ(0px);
 	}
 	.five-coins:hover {
-			transform: scale(1.01) rotateX(19deg) rotateY(-21deg) rotateZ(6deg) translateY(-60px) translateX(60px) translateZ(30px);
+		transform: scale(1.01) rotateX(19deg) rotateY(-21deg) rotateZ(6deg) translateY(-60px) translateX(60px) translateZ(30px);
 	}
 }
 
@@ -480,6 +501,10 @@ footer {
 
 
 @media screen and (max-width: 800px) {
+	.header-links {
+		gap: 8px;
+	}
+
 	.hero-link {
 		font-size: 14px;
 		height: 64px;
@@ -518,15 +543,12 @@ footer {
 	box-shadow: 8px 8px 0 #444;
 }
 
-/* Colour alternation for mahjong suit vibes */
 .link-button:nth-child(odd) {
 	color: #2e7d32;
-	/* green */
 }
 
 .link-button:nth-child(even) {
 	color: #1565c0;
-	/* blue */
 }
 
 
@@ -542,4 +564,8 @@ footer {
 	border: none;
 	height: 1px;
 	background-color: #ccc;
+}
+
+.cheatsheet {
+	width: 100%;
 }

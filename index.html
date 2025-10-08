@@ -5,7 +5,7 @@
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>UEA Mahjong</title>
-		<link rel="stylesheet" href="./src/index.css" />
+		<link rel="stylesheet" href="/src/index.css" />
 		<script type="module" src="/src/main.js"></script>
 	</head>
 	<body>
@@ -15,7 +15,7 @@
 					<li><a href="#about">About</a></li>
 					<li><a href="#news">News</a></li>
 					<li><a href="#events">Events</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="#stats">Stats</a></li>
 				</ul>
 			</nav>
 			<button type="button" class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Theme">
@@ -26,16 +26,48 @@
 			<img src="/hero-background.png" alt="Hero Background" class="hero-background" loading="eager" importance="high">
 			<!--<span class="tagline">Meeting every Thursday at 6pm, check SU for details!</span>-->
 			<button type="button" id="tileSixCharacters" class="tile six-characters">
+				<div class="slice" style="--z: -1;"></div>
+				<div class="slice" style="--z: -2;"></div>
+				<div class="slice" style="--z: -3;"></div>
+				<div class="slice" style="--z: -4;"></div>
+				<div class="slice" style="--z: -5;"></div>
+				<div class="slice" style="--z: -6;"></div>
+				<div class="slice" style="--z: -7;"></div>
+				<div class="slice end" style="--z: -8;"></div>
 				<img src="/tiles/characters-6.svg" title="Six of Characters">
 			</button>
 			<img src="/logo-title.png" alt="UEA Mahjong" class="hero-title" loading="eager" importance="high">
 			<button type="button" id="tileEastWind" class="tile east-wind">
+				<div class="slice" style="--z: -1;"></div>
+				<div class="slice" style="--z: -2;"></div>
+				<div class="slice" style="--z: -3;"></div>
+				<div class="slice" style="--z: -4;"></div>
+				<div class="slice" style="--z: -5;"></div>
+				<div class="slice" style="--z: -6;"></div>
+				<div class="slice" style="--z: -7;"></div>
+				<div class="slice end" style="--z: -8;"></div>
 				<img src="/tiles/winds-east.svg" title="East Wind">
 			</button>
 			<button type="button" id="tileEightBamboos" class="tile eight-bamboos">
+				<div class="slice" style="--z: -1;"></div>
+				<div class="slice" style="--z: -2;"></div>
+				<div class="slice" style="--z: -3;"></div>
+				<div class="slice" style="--z: -4;"></div>
+				<div class="slice" style="--z: -5;"></div>
+				<div class="slice" style="--z: -6;"></div>
+				<div class="slice" style="--z: -7;"></div>
+				<div class="slice end" style="--z: -8;"></div>
 				<img src="/tiles/bamboos-8.svg" title="Eight of Bamboos">
 			</button>
 			<button type="button" id="tileFiveCoins" class="tile five-coins">
+				<div class="slice" style="--z: -1;"></div>
+				<div class="slice" style="--z: -2;"></div>
+				<div class="slice" style="--z: -3;"></div>
+				<div class="slice" style="--z: -4;"></div>
+				<div class="slice" style="--z: -5;"></div>
+				<div class="slice" style="--z: -6;"></div>
+				<div class="slice" style="--z: -7;"></div>
+				<div class="slice end" style="--z: -8;"></div>
 				<img src="/tiles/coins-5.svg" title="Five of Coins">
 			</button>
 			<dialog id="tileInfoDialog">
@@ -84,7 +116,7 @@
 					To get started, please log in using your university email address.
 					If you're new, an account will be created for you automatically.
 				</p>-->
-				<img src="/cheatsheet.png" alt="Mahjong Cheatsheet">
+				<img class="cheatsheet" src="/cheatsheet.png" alt="Mahjong Cheatsheet">
 				<div class="separator">
 					<hr>
 					<h3>Learn</h3>
@@ -92,7 +124,8 @@
 				</div>
 				<div>
 					<!--stuff about mahjong and how to play-->
-
+					We offer regular catchup and training sessions for beginners and those looking to improve their skills.
+					Our experienced members are always happy to help you learn the game and develop your strategies.
 					<a href="https://mahjongsoul.yo-star.com/">Practice Riichi Mahjong on MahjongSoul</a>
 				</div>
 			</section>
@@ -105,13 +138,14 @@
 			<section id="events">
 				<h2>Upcoming Events</h2>
 				<p>
-					Check back here for information on upcoming mahjong tournaments and social events.
+					Check back here for information on upcoming mahjong sessions and social events.
 				</p>
 			</section>
-			<section id="contact">
-				<h2>About Us</h2>
-				<div>
-				</div>
+			<section id="stats">
+				<h2>Stats</h2>
+				<p>
+					Check back here for stats and updates regarding society tournaments, top players, and more.
+				</p>
 			</section>
 			<!--<section>
 				<h2>Dashboard</h2>
@@ -124,12 +158,17 @@
 			</section>-->
 		</main>
 		<footer>
-			<p>© 2025 UEA Mahjong Society</p>
+			<strong>© 2025 UEA Mahjong Society</strong>
 			<p>
 				Website by <a href="https://github.com/Zekiah-A">Zekiah-A</a>,
 				released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL 3.0 License</a>
 				<a href="https://github.com/ueamahjong/website">(See Source Code)</a>
 			</p>
+			<div class="separator">
+				<hr>
+				<h4>Our socials:</h4>
+				<hr>
+			</div>
 			<ul>
 				<li><a href="https://www.instagram.com/ueamahjong">Instagram</a></li>
 				<li><a href="mailto:admin@ueamahjong.org">Email</a></li>
